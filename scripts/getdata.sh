@@ -55,7 +55,7 @@ install_node_project pelias polylines
 npm link pelias-dbclient
 npm link pelias-wof-admin-lookup
 
-install_node_project HSLdevcom pelias-nlsfi-places-importer
+#install_node_project HSLdevcom pelias-nlsfi-places-importer
 npm link pelias-dbclient
 
 install_node_project HSLdevcom pelias-gtfs
@@ -67,9 +67,9 @@ npm link pelias-wof-admin-lookup
 #==============
 
 #run multiple downloads in parallel to save time
-$SCRIPTS/oa-loader.sh &
+# $SCRIPTS/oa-loader.sh &
 $SCRIPTS/osm-loader.sh &
-$SCRIPTS/nlsfi-loader.sh &
+#$SCRIPTS/nlsfi-loader.sh &
 $SCRIPTS/gtfs-loader.sh &
 
 #launch also Elasticsearch at this point

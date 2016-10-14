@@ -41,20 +41,13 @@
     "geonames": {
       "adminLookup": true
     },
-    "polyline": {
-      "datapath": "/mnt/data/",
-      "adminLookup": true,
-      "files": [
-        "finland.polylines"
-      ]
-    },
     "whosonfirst": {
       "datapath": "/mnt/data/whosonfirst/wof_data"
     },
     "wofPipNames": {
-      "localadmin": ["name:fin_x_preferred", "name:swe_x_preferred"],
-      "region": ["name:fin_x_preferred", "name:swe_x_preferred"],
-      "neigbourhood": ["name:fin_x_preferred", "name:swe_x_preferred"]
+      "localadmin": ["name:swe_x_preferred"],
+      "region": ["name:swe_x_preferred"],
+      "neigbourhood": ["name:swe_x_preferred"]
     }
   },
   "schema": {

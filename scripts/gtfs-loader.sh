@@ -5,7 +5,7 @@ set -e
 
 # Download gtfs stop data
 cd $DATA
-curl -sS -O http://dev-api.digitransit.fi/routing-data/v1/router-finland.zip
-unzip router-finland.zip
+curl -sS -o sweden.zip https://api.resrobot.se/gtfs/sweden.zip?key=b589ebfd-f7f5-4fdb-b90e-43188945f826
+unzip sweden.zip
 
 echo 'OK' >> /tmp/loadresults
