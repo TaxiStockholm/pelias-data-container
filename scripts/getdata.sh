@@ -25,9 +25,9 @@ function install_node_project {
 
 set -x
 set -e
-apt-get update
-echo 'APT::Acquire::Retries "20";' >> /etc/apt/apt.conf
-apt-get install -y --no-install-recommends git unzip python python-pip python-dev build-essential gdal-bin rlwrap
+# apt-get update
+# echo 'APT::Acquire::Retries "20";' >> /etc/apt/apt.conf
+# apt-get install -y --no-install-recommends git unzip python python-pip python-dev build-essential gdal-bin rlwrap
 rm -rf /var/lib/apt/lists/*
 
 mkdir -p $TOOLS
@@ -79,7 +79,7 @@ $SCRIPTS/start-ES.sh &
 wait
 
 ok_count=$(cat /tmp/loadresults | grep 'OK' | wc -l )
-if [ $ok_count -ne 5 ]; then
+if [ $ok_count -ne 3 ]; then
     exit 1;
 fi
 
@@ -88,13 +88,13 @@ fi
 #=================
 
 #run two imports in parallel to save time
-$SCRIPTS/index1.sh &
-$SCRIPTS/index2.sh &
+$SCRIPTS/index1.sh
+##$SCRIPTS/index2.sh &
 
 wait
 
 ok_count=$(cat /tmp/indexresults | grep 'OK' | wc -l )
-if [ $ok_count -ne 2 ]; then
+if [ $ok_count -ne 1 ]; then
     exit 1;
 fi
 

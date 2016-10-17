@@ -1,4 +1,4 @@
-FROM elasticsearch:2.3
+FROM elasticsearch
 MAINTAINER Reittiopas version: 0.1
 
 # Finalize elasticsearch installation
@@ -24,6 +24,10 @@ ADD wof_data /mnt/data/whosonfirst/wof_data
 # Download and index data and do cleanup for temp data + packages
 RUN mkdir -p /mnt/tools/scripts
 ADD scripts/*.sh /mnt/tools/scripts/
+RUN apt-get update
+RUN echo 'APT::Acquire::Retries "20";' >> /etc/apt/apt.conf
+RUN apt-get install -y --no-install-recommends git unzip python python-pip python-dev build-essential gdal-bin rlwrap
+
 RUN /bin/bash -c "source /mnt/tools/scripts/getdata.sh"
 
 RUN chmod -R a+rwX /var/lib/elasticsearch/ \
